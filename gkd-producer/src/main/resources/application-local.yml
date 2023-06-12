@@ -1,0 +1,14 @@
+server:
+  port: 8090
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+
+app:
+  server:
+    host: localhost:8070
+
+  topic:
+    create: createTopic
+    delete: deleteTopic

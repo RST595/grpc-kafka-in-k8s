@@ -1,0 +1,21 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: groupId
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/grpc
+
+grpc:
+  port: 8070
+  enable-reflection: true

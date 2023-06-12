@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gkd-consumer
+spec:
+  selector:
+    matchLabels:
+      app: gkd-consumer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gkd-consumer
+    spec:
+      containers:
+        - name: gkd-consumer
+          image: grpc-k8s-db/gkd-consumer:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+            - containerPort: 8070
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: gkd-consumer-svc
+spec:
+  selector:
+    app: gkd-consumer # APP!!! NOT TYPE!!!
+  ports:
+    - protocol: TCP
+      port: 8080
+      name: tcp-80
+      targetPort: 8080
+    - protocol: TCP
+      port: 8070
+      name: tcp-70
+      targetPort: 8070
+  type: NodePort

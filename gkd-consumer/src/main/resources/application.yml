@@ -1,0 +1,23 @@
+spring:
+  kafka:
+    bootstrap-servers: my-cluster-kafka-brokers.kafka:9092
+    consumer:
+      group-id: groupId
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://psql:5432/grpc
+#    username: admin
+#    password: password
+
+grpc:
+  port: 8070
+  enable-reflection: true

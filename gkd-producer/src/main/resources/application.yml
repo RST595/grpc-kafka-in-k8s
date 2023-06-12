@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    bootstrap-servers: my-cluster-kafka-brokers.kafka:9092
+
+app:
+  server:
+    host: gkd-consumer-svc:8070
+
+  topic:
+    create: createTopic
+    delete: deleteTopic
