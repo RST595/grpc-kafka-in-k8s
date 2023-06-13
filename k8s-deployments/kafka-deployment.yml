@@ -1,3 +1,18 @@
+# Start kafka in k8s
+# 1. minikube start --memory=4096
+# 2. kubectl create namespace kafka
+# 3. kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
+# 4. Wait to start
+# 4. kubectl apply -f kafka-deployment.yml -n kafka (https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml)
+#
+# Wait to start, and test:
+# 1. kubectl -n kafka run kafka-producer -ti --image=quay.io/strimzi/kafka:0.35.1-kafka-3.4.0 --rm=true --restart=Never -- bin/kafka-console-producer.sh --bootstrap-server my-cluster-kafka-bootstrap:9092 --topic my-topic
+# 2. kubectl -n kafka run kafka-consumer -ti --image=quay.io/strimzi/kafka:0.35.1-kafka-3.4.0 --rm=true --restart=Never -- bin/kafka-console-consumer.sh --bootstrap-server my-cluster-kafka-bootstrap:9092 --topic my-topic --from-beginning
+#
+# Delete:
+# 1. kubectl -n kafka delete $(kubectl get strimzi -o name -n kafka)
+# 2. kubectl -n kafka delete -f 'https://strimzi.io/install/latest?namespace=kafka'
+
 apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
