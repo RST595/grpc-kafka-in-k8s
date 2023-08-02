@@ -19,5 +19,5 @@ spring:
 #    password: password
 
 grpc:
-  port: 8070
+  port: 35070
   enable-reflection: true

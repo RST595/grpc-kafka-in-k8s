@@ -4,7 +4,7 @@ spring:
 
 app:
   server:
-    host: gkd-consumer-svc:8070
+    host: gkd-consumer-svc:35070
 
   topic:
     create: createTopic

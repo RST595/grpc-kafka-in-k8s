@@ -17,5 +17,5 @@ spring:
     url: jdbc:postgresql://localhost:5432/grpc
 
 grpc:
-  port: 8070
+  port: 35070
   enable-reflection: true
